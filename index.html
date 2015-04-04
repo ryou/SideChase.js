@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Side Chase</title>
+  <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+  <script src="js/SideChase.js"></script>
+  <style>
+    #GHead {
+      height: 200px;
+      background-color: gray;
+    }
+    #Contents:after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+    #Side {
+      float: left;
+      width: 30%;
+      height: 500px;
+      background-color: blue;
+    }
+    #Main {
+      float: left;
+      width: 70%;
+      min-height: 1000px;
+      background-color: green;
+    }
+    #GFoot {
+      height: 500px;
+      background-color: red;
+    }
+    .toggleBtn {
+      height: 100px;
+      background-color: yellow;
+    }
+    .toggleTarget {
+      display: none;
+      height: 1000px;
+      background-color: black;
+    }
+  </style>
+  <script>
+    $(document).ready(function() {
+      $('#Side').SideChase();
+
+      $('.toggleBtn').on('click', function() {
+        $('.toggleTarget').slideToggle();
+      });
+    });
+  </script>
+</head>
+<body>
+  <header id="GHead">
+    <p>Header</p>
+  </header>
+  <div id="Contents">
+    <div id="Side">
+      <p>Side</p>
+    </div>
+    <div id="Main">
+      <p style="margin-bottom: 800px;">Main</p>
+      <div class="toggleBtn"></div>
+      <div class="toggleTarget"></div>
+    </div>
+  </div>
+  <footer id="GFoot">
+    <p>Footer</p>
+  </footer>
+</body>
+</html>
