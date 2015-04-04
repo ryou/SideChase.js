@@ -5,7 +5,7 @@ SideChase.js
 
 ## デモ
 
-[GitHub Pages](http://ryou.github.io/SideChase.js/)
+[GitHub Pages](http://ryou.github.io/SideChase.js/example/)
 
 ## 依存ライブラリ
 
