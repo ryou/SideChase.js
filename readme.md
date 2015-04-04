@@ -5,6 +5,8 @@ SideChase.js
 
 ## デモ
 
+[GitHub Pages](http://ryou.github.io/SideChase.js/)
+
 ## 依存ライブラリ
 
 jQuery(バージョンは特に不問)
