@@ -10,43 +10,51 @@
     };
     var setting = $.extend(defaults, options);
 
-    var $container = $(setting.container);
     var $side      = $(this);
+    var $container = $(setting.container);
 
     $(win).scroll(function() {
-      var sideH  = $side.outerHeight();
-      var contH  = $container.outerHeight();
-      var minTop = $container.offset().top;
-      var maxTop = minTop + contH - sideH - setting.bottomMargin;
-      var nowTop = $(win).scrollTop();
 
-      var winH = $(win).height();
-      var nowBottom  = nowTop + winH;
+      // containerの高さ
+      var contH  = $container.outerHeight();
+
+      // ブラウザの高さ、及び上端、下端の座標
+      var winH      = $(win).height();
+      var nowTop    = $(win).scrollTop();
+      var nowBottom = nowTop + winH;
+
+      // Sideの高さ、及び上端、下端の座標
+      var sideH      = $side.outerHeight();
       var sideTop    = $side.offset().top;
       var sideBottom = sideTop + sideH;
 
-      //ブラウザ上端が、Side上端より下、かつ、ブラウザ下端がSide下端より上なら
-      //Sideを動かさない
-      //逆にいうと、Side上端より上、または、Side下端より下なら動かす
-      if (nowTop < sideTop || sideBottom < nowBottom) {
-        var marginTop = 0;
+      // Sideの移動可能範囲
+      var minTop = $container.offset().top;
+      var maxTop = minTop + contH - sideH - setting.bottomMargin;
 
+      // ブラウザ上端がSideより上、又はブラウザ下端がSide下端より下の時だけ
+      // 移動処理を行う。
+      // (Sideがブラウザよりでかい場合の対策)
+      if (nowTop < sideTop || sideBottom < nowBottom) {
+        var newSideTop = nowTop;
+
+        // Sideがブラウザよりでかい場合、Sideが下へ動く処理の際は
+        // Sideの下端がブラウザの下端に沿うように動かす。
         if (winH < sideH) {
-          if (nowTop < sideTop) {
-            //上端に揃える
-          } else {
-            //下端に揃える
-            nowTop = nowBottom - sideH;
+          if (sideBottom < nowBottom) {
+            newSideTop = nowBottom - sideH;
           }
         }
 
+        // Sideをcontainer内に納める処理
         if (nowTop <= minTop) {
-          nowTop = minTop;
+          newSideTop = minTop;
         } else if (maxTop < nowTop) {
-          nowTop = maxTop;
+          newSideTop = maxTop;
         }
-        marginTop = nowTop - minTop;
+        var marginTop = newSideTop - minTop;
 
+        // 移動処理
         if (setting.animate) {
           $side.animate({
             'margin-top': marginTop + 'px'
