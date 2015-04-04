@@ -1,11 +1,11 @@
-SideChase.js
+jQuery.SideChase.js
 ====
 
 画面スクロールに追従するナビを実装するjQueryプラグイン
 
 ## デモ
 
-[GitHub Pages](http://ryou.github.io/SideChase.js/example/)
+[GitHub Pages](http://ryou.github.io/jQuery.SideChase.js/example/)
 
 ## 依存ライブラリ
 
@@ -17,7 +17,7 @@ jQuery(バージョンは特に不問)
 
 ```
 <script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
-<script src="js/SideChase.js"></script>
+<script src="js/jQuery.SideChase.js"></script>
 <script>
   $(document).ready(function() {
     $('#Side').SideChase();
