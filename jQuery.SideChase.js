@@ -47,9 +47,9 @@
         }
 
         // Sideをcontainer内に納める処理
-        if (nowTop <= minTop) {
+        if (newSideTop <= minTop) {
           newSideTop = minTop;
-        } else if (maxTop < nowTop) {
+        } else if (maxTop < newSideTop) {
           newSideTop = maxTop;
         }
         var marginTop = newSideTop - minTop;
