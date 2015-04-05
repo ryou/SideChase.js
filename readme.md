@@ -20,16 +20,22 @@ jQuery(バージョンは特に不問)
 <script src="js/jQuery.SideChase.js"></script>
 <script>
   $(document).ready(function() {
-    $('#Side').SideChase();
+    $('#Side').SideChase('#Contents');
   });
 </script>
 ```
 
+### 引数
+
+|名前|必須・任意|説明|
+|:----|:----|:----|
+|container|必須|ナビの移動範囲を規定するDOM要素のセレクタ。ナビはこの要素を超えて移動しない。|
+|options|任意|プラグインのオプション設定を格納するハッシュ。詳細は後述|
+
 ### オプション
 
 |名前|デフォルト|説明|
-|:----|:----|:----|:----|
-|container|'#Contents'|ナビの移動範囲を規定するDOM要素。ナビはこの要素を超えて移動しない。|
+|:----|:----|:----|
 |bottomMargin|0|この値分、ナビとcontainerの下端にマージンを設ける。|
 |animate|true|trueの場合、ナビが移動の際にアニメーションする。|
 |animateDuration|500|ナビのアニメーション速度。|
@@ -40,7 +46,7 @@ jQuery(バージョンは特に不問)
 
 ## 作成者
 
-[ryou](https://github.com/)
+[ryou](https://github.com/ryou/)
 
 ## 参考
 

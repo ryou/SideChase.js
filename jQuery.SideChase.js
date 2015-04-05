@@ -1,9 +1,9 @@
 ;(function($, win, doc){
 
-  $.fn.SideChase = function(options) {
+  $.fn.SideChase = function(container, options) {
 
     var defaults = {
-      container       : '#Contents',
+      container       : container,
       bottomMargin    : 0,
       animate         : true,
       animateDuration : 500

@@ -20,6 +20,8 @@
       width: 30%;
       height: 500px;
       background-color: blue;
+      border-top: 20px solid #884455;
+      border-bottom: 20px solid #884455;
     }
     #Main {
       float: left;
@@ -43,7 +45,7 @@
   </style>
   <script>
     $(document).ready(function() {
-      $('#Side').SideChase();
+      $('#Side').SideChase('#Contents');
 
       $('.toggleBtn').on('click', function() {
         $('.toggleTarget').slideToggle();
