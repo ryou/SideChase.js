@@ -20,7 +20,9 @@ jQuery(バージョンは特に不問)
 <script src="js/jQuery.SideChase.js"></script>
 <script>
   $(document).ready(function() {
-    $('#Side').SideChase('#Contents');
+    $('#Side').SideChase('#Contents', {
+      bottomMargin: 100
+    });
   });
 </script>
 ```
